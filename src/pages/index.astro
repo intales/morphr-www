@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const codeContent = await Astro.glob('../content/code_snippet.md');
+const [codeFile] = await Astro.glob('../content/code_snippet.md');
 
 const features = [
   "Design components in Figma with complete freedom",
@@ -63,7 +63,7 @@ const features = [
         <div class="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
           <div class="rounded-lg overflow-hidden bg-black/50">
             <div class="p-4">
-              <codeContent[0].Content />
+				<Fragment set:html={codeFile.compiledContent()} />
             </div>
           </div>
         </div>
