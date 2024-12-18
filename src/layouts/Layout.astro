@@ -1,0 +1,99 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Transform your Figma designs into pixel-perfect Flutter widgets" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Font preload - Considera di aggiungere il tuo font system -->
+    <link
+      rel="preload"
+      href="/fonts/inter-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <a href="/" class="text-xl font-bold">Figflow</a>
+          </div>
+          <div class="hidden md:block">
+            <div class="flex items-center space-x-8">
+              <a href="#features" class="text-gray-300 hover:text-white transition-colors">Features</a>
+              <a href="#docs" class="text-gray-300 hover:text-white transition-colors">Documentation</a>
+              <a href="#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+              <a href="https://github.com" class="text-gray-300 hover:text-white transition-colors">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+
+    <style is:global>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      .gradient-text {
+        background: linear-gradient(45deg, #FCD34D, #E879F9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      :root {
+        --astro-code-color-background: transparent !important;
+      }
+
+      pre {
+        background-color: transparent !important;
+        padding: 0 !important;
+      }
+      
+      code {
+        background-color: transparent !important;
+      }
+
+      .markdown-body pre {
+        background-color: transparent !important;
+      }
+
+      .markdown-body .astro-code {
+        background-color: transparent !important;
+      }
+
+      .markdown-body pre, 
+      .markdown-body .astro-code,
+      .prose pre {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    </style>
+  </body>
+</html>
