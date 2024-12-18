@@ -11,9 +11,9 @@ const features = [
 ];
 ---
 
-<Layout title="Figflow - From Figma to Flutter">
+<Layout title="From Figma to Flutter">
 
-<section class="pt-24 pb-24">
+<section class="pt-24 pb-16">
   <div class="max-w-7xl mx-auto px-8">
     {/* Title */}
     <h1 class="text-center mb-4">
@@ -74,14 +74,19 @@ const features = [
 
 {/* Demo Section */}
 <section class="pb-24 relative">
-  <div class="max-w-7xl mx-auto px-8">
+  <div class="max-w-7xl mx-auto px-8"> {/* Contenitore più stretto del normale */}
     <h2 class="text-4xl font-bold text-center mb-16">See it in action</h2>
-    <div class="bg-gray-900/50 rounded-xl border border-gray-800 aspect-video">
-      <img 
-        src="/images/flutter-screen.png" 
-        alt="Demo" 
-        class="w-full h-full object-cover rounded-xl"
-      />
+    
+    <div class="bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden">
+      <video 
+        autoplay 
+        loop 
+        muted 
+        playsinline
+        class="w-full"
+      >
+        <source src="/assets/video.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
