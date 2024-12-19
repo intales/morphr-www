@@ -1,4 +1,7 @@
 ---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -18,11 +21,13 @@ const { title, description = "Transform your Figma designs into pixel-perfect Fl
     <meta name="description" content={description} />
   </head>
   <body class="bg-black text-white">
+    <Navbar></Navbar>
     <main>
       <slot />
     </main>
 
     <!-- Footer -->
+     <Footer />
 
     <style is:global>
       @keyframes float {
