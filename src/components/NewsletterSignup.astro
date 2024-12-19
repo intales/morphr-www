@@ -1,0 +1,36 @@
+---
+---
+
+<section class="py-24 text-center">
+  <h2 class="text-5xl font-bold mb-4">Get notified</h2>
+  <p class="text-zinc-400 text-lg mb-8">Stay in the know with updates from morphr.dev</p>
+  
+  <form
+    action="https://buttondown.email/api/emails/embed-subscribe/morphr"
+    method="post"
+    target="_blank"
+    class="flex gap-2 max-w-xl mx-auto"
+  >
+    <div class="flex-1 relative">
+      <div class="absolute left-4 top-1/2 -translate-y-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-400">
+          <rect width="20" height="16" x="2" y="4" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </div>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        class="w-full pl-12 pr-4 py-3 rounded-lg border border-zinc-800 bg-zinc-900/80 text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/30"
+        required
+      />
+    </div>
+    <button 
+      type="submit"
+      class="px-6 py-3 rounded-lg bg-gradient-to-r from-amber-300 to-fuchsia-400 text-black font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
+    >
+      Subscribe
+    </button>
+  </form>
+</section>
