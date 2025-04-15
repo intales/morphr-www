@@ -1,103 +1,64 @@
 ---
 import Calendly from '../components/Calendly.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
+import CodeComparison from '../components/CodeComparison.astro';
 import Layout from '../layouts/Layout.astro';
-
-const [codeFile] = await Astro.glob('../content/code_snippet.md');
-
-const features = [
-  "Design components in Figma with complete freedom",
-  "Import them with zero-config setup",
-  "Full control over layout and logic",
-  "Type-safe property overrides",
-  "Sync your app UI over-the-air",
-];
 ---
-
 <Layout title="Morphr - From Figma to Flutter">
-
 <section class="pt-24 pb-16">
-  <div class="max-w-7xl mx-auto px-8">
-    {/* Title */}
-    <h1 class="text-center mb-4">
-      <span class="text-6xl font-bold block mb-2">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    {/* Hero Title */}
+    <h1 class="text-center mb-12">
+      <span class="text-4xl sm:text-6xl font-bold block mb-2">
         From Figma to 
         <span class="text-white">Flutter</span>
       </span>
-      <span class="gradient-text text-6xl font-bold">Seamlessly.</span>
+      <span class="gradient-text text-4xl sm:text-6xl font-bold">Seamlessly.</span>
     </h1>
-
-    {/* Main Section */}
-    <div class="mt-24 grid md:grid-cols-2 gap-16 items-start">
-      {/* Left Side - Features */}
-      <div>
-        <h2 class="text-3xl font-bold mb-8">
-          Transform designs into Flutter widgets instantly
-        </h2>
-        
-        <p class="text-gray-400 text-xl mb-8">
-          Convert your Figma components into pixel-perfect Flutter widgets with complete control over the implementation.
-        </p>
-
-        <ul class="space-y-4">
-          {features.map(feature => (
-            <li class="flex items-start gap-3">
-              <svg 
-                class="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round" 
-                  stroke-width="2" 
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              <span class="text-gray-300 text-lg">{feature}</span>
-            </li>
-          ))}
-        </ul>
+    {/* Main Value Proposition */}
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">
+        Transform designs into Flutter widgets <span class="gradient-text">instantly</span>
+      </h2>
+      <p class="text-gray-400 text-lg sm:text-xl">
+        Convert your Figma components into <span class="gradient-text font-medium">pixel-perfect</span> Flutter widgets with complete control over the implementation.
+      </p>
+    </div>
+    {/* Video Demo Section */}
+    <div class="mb-24">
+      <div class="bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden">
+        <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          class="w-full"
+        >
+          <source src="/assets/video.mp4" type="video/mp4">
+        </video>
       </div>
-
-      {/* Right Side - Code Example */}
-      <div>
-        <div class="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
-          <div class="rounded-lg overflow-hidden bg-black/50">
-            <div class="p-4">
-				<Fragment set:html={codeFile.compiledContent()} />
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    {/* Code Comparison Section */}
+    <div class="mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-3">Less code. <span class="gradient-text">More design</span>. Pure magic.</h2>
+      <p class="text-center text-gray-400 text-lg mb-12 max-w-2xl mx-auto">See how Morphr transforms complex widget hierarchies<br>into <span class="gradient-text font-medium">clean, maintainable code</span>.</p>
+      <CodeComparison />
     </div>
   </div>
 </section>
-
-{/* Demo Section */}
-<section class="pb-8 relative">
-  <div class="max-w-7xl mx-auto px-8"> 
-    <h2 class="text-4xl font-bold text-center mb-16">See it in action</h2>
-    
-    <div class="bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden">
-      <video 
-        autoplay 
-        loop 
-        muted 
-        playsinline
-        class="w-full"
-      >
-        <source src="/assets/video.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-</section>
-
-<section class="text-center pt-16 pb-24">
+<section class="text-center pb-24">
   <NewsletterSignup />
   <p class="text-sm text-zinc-500 pt-8">
-    The first 200 subscribers will get private beta access, a lifetime discount, and a direct communication channel with our team to shape the future of morphr.
+    The first 200 subscribers will get private beta access, a <span class="gradient-text font-medium">lifetime discount</span>, and a direct communication channel with our team to shape the future of morphr.
   </p>
 </section>
 </Layout>
+
+<style>
+  .gradient-text {
+    background: linear-gradient(45deg, #FCD34D, #E879F9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>

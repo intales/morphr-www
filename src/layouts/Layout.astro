@@ -72,5 +72,26 @@ const { title, description = "Transform your Figma designs into pixel-perfect Fl
         margin: 0 !important;
       }
     </style>
+<script is:inline>
+  // Carica Prism.js per il syntax highlighting
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Verifica se Prism è già stato caricato
+    if (typeof Prism === 'undefined') {
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js';
+      script.onload = () => {
+        // Carica i linguaggi necessari dopo che Prism core è stato caricato
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js');
+      };
+      document.body.appendChild(script);
+    }
+
+    function loadScript(src) {
+      const script = document.createElement('script');
+      script.src = src;
+      document.body.appendChild(script);
+    }
+  });
+</script>
   </body>
 </html>
