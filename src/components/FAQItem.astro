@@ -1,0 +1,112 @@
+---
+// FAQItem.astro - Un componente per ogni singola domanda/risposta
+interface Props {
+  question: string;
+  content: string;
+}
+
+const { question, content } = Astro.props;
+---
+
+<div class="faq-item border-b border-zinc-800 last:border-b-0">
+  <button class="faq-question w-full py-6 flex items-center justify-between text-left">
+    <span class="text-lg font-medium">{question}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon transition-transform duration-200">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </button>
+  <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 text-zinc-400">
+    <div class="pb-6 faq-content">
+      <Fragment set:html={content} />
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Stile per garantire che il contenuto markdown sia formattato correttamente */
+  .faq-content p {
+    margin-bottom: 1rem;
+  }
+  
+  .faq-content ul, .faq-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .faq-content ul {
+    list-style-type: disc;
+  }
+  
+  .faq-content ol {
+    list-style-type: decimal;
+  }
+  
+  .faq-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .faq-content a {
+    color: #E879F9;
+    text-decoration: underline;
+  }
+  
+  .faq-content strong, .faq-content b {
+    font-weight: bold;
+  }
+  
+  .faq-content em, .faq-content i {
+    font-style: italic;
+  }
+  
+  .faq-content code {
+    font-family: monospace;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.2rem;
+  }
+  
+  .faq-content pre {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.closest('.faq-item');
+        const answer = item?.querySelector('.faq-answer');
+        const icon = question.querySelector('.faq-icon');
+        
+        // Chiudi tutte le altre FAQ
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherIcon = otherItem.querySelector('.faq-icon');
+            if (otherAnswer) {
+              otherAnswer.style.maxHeight = '0px';
+              otherIcon?.classList.remove('rotate-180');
+            }
+          }
+        });
+        
+        // Apri/chiudi la FAQ corrente
+        if (answer) {
+          if (answer.style.maxHeight === '0px' || !answer.style.maxHeight) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon?.classList.add('rotate-180');
+          } else {
+            answer.style.maxHeight = '0px';
+            icon?.classList.remove('rotate-180');
+          }
+        }
+      });
+    });
+  });
+</script>
