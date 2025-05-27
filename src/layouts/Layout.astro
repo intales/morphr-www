@@ -20,57 +20,12 @@ const { title, description = "Transform your Figma designs into pixel-perfect Fl
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body class="bg-black text-white">
+  <body class="bg-[#0F001F] text-white">
     <Navbar></Navbar>
     <main>
       <slot />
     </main>
 
-    <!-- Footer -->
      <Footer />
-
-    <style is:global>
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-      }
-      .floating {
-        animation: float 6s ease-in-out infinite;
-      }
-      .gradient-text {
-        background: linear-gradient(45deg, #FCD34D, #E879F9);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      :root {
-        --astro-code-color-background: transparent !important;
-      }
-
-      pre {
-        background-color: transparent !important;
-        padding: 0 !important;
-      }
-      
-      code {
-        background-color: transparent !important;
-      }
-
-      .markdown-body pre {
-        background-color: transparent !important;
-      }
-
-      .markdown-body .astro-code {
-        background-color: transparent !important;
-      }
-
-      .markdown-body pre, 
-      .markdown-body .astro-code,
-      .prose pre {
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-    </style>
   </body>
 </html>

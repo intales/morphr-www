@@ -23,7 +23,6 @@ const { question, content } = Astro.props;
 </div>
 
 <style is:global>
-  /* Stile per garantire che il contenuto markdown sia formattato correttamente */
   .faq-content p {
     margin-bottom: 1rem;
   }
@@ -84,7 +83,6 @@ const { question, content } = Astro.props;
         const answer = item?.querySelector('.faq-answer');
         const icon = question.querySelector('.faq-icon');
         
-        // Chiudi tutte le altre FAQ
         document.querySelectorAll('.faq-item').forEach(otherItem => {
           if (otherItem !== item) {
             const otherAnswer = otherItem.querySelector('.faq-answer');
@@ -96,7 +94,6 @@ const { question, content } = Astro.props;
           }
         });
         
-        // Apri/chiudi la FAQ corrente
         if (answer) {
           if (answer.style.maxHeight === '0px' || !answer.style.maxHeight) {
             answer.style.maxHeight = answer.scrollHeight + 'px';

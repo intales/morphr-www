@@ -1,27 +1,28 @@
 ---
 import NewsletterSignup from '../components/NewsletterSignup.astro';
-import CodeComparison from '../components/CodeComparison.astro';
 import Layout from '../layouts/Layout.astro';
 import FAQ from '../components/FAQ.astro';
 ---
 <Layout title="Morphr - From Figma to Flutter">
 <section class="pt-24 pb-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-8">
-    {/* Hero Title */}
+
     <h1 class="text-center mb-12 pt-24">
-      <span class="text-8xl sm:text-8xl font-bold block mb-2">
+      <span class="text-6xl sm:text-8xl font-bold block mb-2">
         From Figma to Flutter
       </span>
-      <span class="gradient-text text-8xl sm:text-8xl font-bold">over-the-air.</span>
+      <span class="gradient-text text-6xl sm:text-8xl font-bold">over-the-air.</span>
     </h1>
-    {/* Main Value Proposition */}
+
     <div class="text-center mb-16 max-w-3xl mx-auto">
       <h2 class="text-2xl sm:text-3xl font-bold mb-4">
         Push Figma changes to Flutter instantly.</span>
       </h2>
+      <p class="text-center text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+        Build Flutter UI 10x faster by pushing every Figma change to Flutter instantly. No more dev cycles. No more app updates. Update Figma designs and see changes instantly.
+      </p>
     </div>
 
-    {/* Demo Video */}
     <div class="mb-24">
       <div class="bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden">
         <video 
@@ -31,67 +32,13 @@ import FAQ from '../components/FAQ.astro';
           playsinline
           class="w-full"
         >
-          <source src="/assets/morphr_4.mp4" type="video/mp4">
+          <source src="/assets/morphr_sync.mp4" type="video/mp4">
         </video>
       </div>
     </div>
 
-    {/* Feature Video Sections */}
-    {/* Video 1: FigmaComponent.widget */}
-    <div class="mb-20">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-3">
-        <span class="gradient-text">Widget. Widget. Widget.</span> From complex hierarchies to a single widget.
-      </h2>
-      <p class="text-center text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-        Render entire screens with a single component while maintaining <span class="gradient-text font-medium">perfect design fidelity</span> and complete control.
-      </p>
-      <div class="bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden">
-        <video 
-          autoplay 
-          loop 
-          muted 
-          playsinline
-          class="w-full"
-        >
-          <source src="/assets/morphr_2.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-
-    {/* Video 2: Transformers */}
-    <div class="mb-20">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-3">
-        <span class="gradient-text">Inject life</span> into your designs.
-      </h2>
-      <p class="text-center text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-        Use transformers to <span class="gradient-text font-medium">dynamically populate</span> your design with real data while preserving the visual structure created in Figma.
-      </p>
-      <div class="bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden">
-        <video 
-          autoplay 
-          loop 
-          muted 
-          playsinline
-          class="w-full"
-        >
-          <source src="/assets/morphr_3.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-
-    {/* Code Comparison Section */}
-    <div class="mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-3">Less code. <span class="gradient-text">More design.</span> Pure magic.</h2>
-      <p class="text-center text-gray-400 text-lg mb-12 max-w-2xl mx-auto">See how Morphr transforms complex widget hierarchies<br>into <span class="gradient-text font-medium">clean, maintainable code</span>.</p>
-      <CodeComparison />
-    </div>
-  </div>
-</section>
 <section class="text-center pb-24">
   <NewsletterSignup />
-  <p class="text-sm text-zinc-500 pt-8">
-    The first 200 subscribers will get private beta access, a <span class="gradient-text font-medium">lifetime discount</span>, and a direct communication channel with our team to shape the future of morphr.
-  </p>
 </section>
 
 <section>

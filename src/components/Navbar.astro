@@ -1,7 +1,7 @@
 ---
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-black/50 backdrop-blur-xl">
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-[#0F001F]/70 backdrop-blur-xl">
   <div class="max-w-7xl mx-auto px-4 sm:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center gap-3">
@@ -9,7 +9,6 @@
         <span class="text-xl font-semibold text-white">morphr</span>
       </div>
       
-      <!-- Menu per desktop -->
       <div class="hidden md:flex md:items-center md:gap-6">
         <a href="https://github.com/intales/morphr" class="text-gray-400 hover:text-white transition-colors text-sm">GitHub</a>
         <a href="https://x.com/morphrdev" class="text-gray-400 hover:text-white transition-colors text-sm">X</a>
@@ -18,7 +17,6 @@
         <a href="https://docs.page/intales/morphr" class="px-4 py-2 rounded-lg bg-gradient-to-r from-amber-300 to-fuchsia-400 text-black font-medium hover:opacity-90 transition-opacity">Start for free</a>
       </div>
       
-      <!-- Button hamburger per mobile -->
       <div class="md:hidden">
         <button id="menu-toggle" class="text-white p-2" aria-label="Toggle menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,7 +27,6 @@
     </div>
   </div>
   
-  <!-- Menu mobile (nascosto di default) -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-black/80 backdrop-blur-xl">
     <div class="px-4 py-4 space-y-4">
       <a href="https://github.com/intales/morphr" class="block text-gray-400 hover:text-white transition-colors">GitHub</a>
@@ -42,7 +39,6 @@
 </nav>
 
 <script>
-  // Toggle menu per dispositivi mobili
   document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');

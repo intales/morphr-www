@@ -2,10 +2,8 @@
 import FAQItem from './FAQItem.astro';
 import { getCollection } from 'astro:content';
 
-// Ottieni tutte le FAQ dal content collection
 const faqs = await getCollection('faqs');
 
-// Ordina le FAQ in base al campo order se presente
 const sortedFaqs = faqs.sort((a, b) => {
   const orderA = a.data.order || 999;
   const orderB = b.data.order || 999;
@@ -13,7 +11,7 @@ const sortedFaqs = faqs.sort((a, b) => {
 });
 ---
 
-<section class="py-16 bg-black">
+<section class="py-16">
   <div class="max-w-3xl mx-auto px-4 sm:px-6">
     <h2 class="text-4xl font-bold text-center mb-12">
       Frequently Asked <span class="gradient-text">Questions</span>
